@@ -1,5 +1,29 @@
 # 时境 SHIJING
 
+## Vercel 免登录网页体验版
+
+仓库根目录已配置 `vercel.json`，Vercel 默认部署 `preview/` 中的独立 React / Vite 静态体验版。保留红金白手机 UI、所有图片、主题详情、完整步骤、配乐播放器、日历、收藏、提醒和练习记录。全部内容开放浏览，无需会员登录、数据库、API 密钥或环境变量。点数为展示数据，不会扣点。
+
+收藏、提醒和练习记录只保存在当前浏览器，不会上传服务器。可在会员信息弹层点击「重置体验记录」。示范活动日期会以访问当天为基准排在未来几天，历史导师图示保留原日期；所有示范吉时和方位均未经过正式核定。浏览器通知需要保持页面打开，也可下载 ICS 到系统日历。
+
+### Vercel 部署
+
+- GitHub 仓库：`ronfatt/qimenai`；分支：`main`。
+- Root Directory：仓库根目录（留空），不要填 `app` 或 `preview`。
+- Framework Preset：`Vite`。
+- Install Command：`npm --prefix preview ci --include=dev`。
+- Build Command：`npm --prefix preview run build`。
+- Output Directory：`preview/dist`。
+- Node.js：22.x 或更新的受支持版本。
+
+这些设置已经写入根目录的 `vercel.json`。若原 Vercel 项目有手动覆盖设置，清除旧设置后重新部署最新的 `main`。无需迁移正式会员后端。
+
+本地预览：`npm --prefix preview ci`，然后 `npm --prefix preview run dev`。生产构建：`npm --prefix preview run build`，本地检查产物：`npm --prefix preview run preview`。
+
+## 原 Sites 会员版本
+
+下面的说明适用于原有 Sites / Cloudflare 服务端版本，其登录、D1 和 R2 代码保留在仓库中。Vercel 网页体验版不导入或运行这些后端模块。
+
 手机优先的导师内容会员平台，使用 React / Vinext、Cloudflare D1 和 R2。
 
 ## 已实现

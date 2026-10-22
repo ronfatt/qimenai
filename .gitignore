@@ -1,5 +1,6 @@
 # Dependencies
 /node_modules/
+/preview/node_modules/
 /.pnp
 .pnp.*
 # Keep authored Yarn tooling if the project adopts Yarn.
@@ -11,6 +12,7 @@
 
 # Generated builds and framework state
 /dist/
+/preview/dist/
 /.next/
 /.vinext/
 /out/

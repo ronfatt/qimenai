@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm --prefix preview ci --include=dev",
+  "buildCommand": "npm --prefix preview run build",
+  "outputDirectory": "preview/dist",
+  "rewrites": [{ "source": "/((?!assets/|art/|reference/|ambient\\.wav|favicon\\.svg).*)", "destination": "/index.html" }]
+}
