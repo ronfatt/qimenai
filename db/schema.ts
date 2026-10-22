@@ -1,0 +1,8 @@
+import { sqliteTable, text, integer, primaryKey } from 'drizzle-orm/sqlite-core';
+export const members=sqliteTable('members',{id:text('id').primaryKey(),email:text('email').notNull(),name:text('name').notNull(),memberUntil:text('member_until').notNull(),createdAt:text('created_at').notNull()});
+export const contents=sqliteTable('contents',{id:text('id').primaryKey(),data:text('data').notNull(),status:text('status').notNull().default('published'),createdAt:text('created_at').notNull()});
+export const ledger=sqliteTable('ledger',{id:text('id').primaryKey(),userId:text('user_id').notNull(),amount:integer('amount').notNull(),label:text('label').notNull(),createdAt:text('created_at').notNull()});
+export const unlocks=sqliteTable('unlocks',{userId:text('user_id').notNull(),contentId:text('content_id').notNull(),id:text('id').notNull(),createdAt:text('created_at').notNull() },t=>[primaryKey({columns:[t.userId,t.contentId]})]);
+export const reminders=sqliteTable('reminders',{userId:text('user_id').notNull(),contentId:text('content_id').notNull(),minutes:integer('minutes').notNull(),createdAt:text('created_at').notNull()},t=>[primaryKey({columns:[t.userId,t.contentId]})]);
+export const favorites=sqliteTable('favorites',{userId:text('user_id').notNull(),contentId:text('content_id').notNull()},t=>[primaryKey({columns:[t.userId,t.contentId]})]);
+export const journals=sqliteTable('journals',{id:text('id').primaryKey(),userId:text('user_id').notNull(),contentId:text('content_id').notNull(),feeling:text('feeling').notNull(),action:text('action').notNull(),createdAt:text('created_at').notNull()});
