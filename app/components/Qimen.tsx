@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ArrowUpRight, ArrowRight, Compass, Layers3, BookOpen, MoveUpRight, Info } from 'lucide-react';
 import { palaces, earthPlate, elementRelation, doorMeanings, qimenSources, type Dun } from '../qimen';
 import './qimen.css';
+import MentorPoster from './MentorPoster';
 
 const layers = ['总览', '八门', '九星', '八神', '天地盘'] as const;
 type Layer = typeof layers[number];
@@ -36,6 +37,8 @@ export default function Qimen({ onExplore }: { onExplore: () => void }) {
   return <div className="qimen-page">
     <header className="qimen-heading"><span className="eyebrow">THE LANGUAGE OF TIME & SPACE</span><h1>九宫为局，<span>时空成象。</span></h1><p>先看懂空间，再认识天地人神的叠加。</p></header>
     <section className="qimen-intro"><Compass size={31} strokeWidth={1} /><div><span>奇门遁甲 · 传统时空模型</span><h2>把复杂的盘，慢慢读懂。</h2><p>九宫是底图，星、门、神与干是盘层。<br />同一位置上的组合，才是读盘的开始。</p></div><span className="qimen-seal" aria-hidden="true">奇<br />门</span></section>
+
+    <MentorPoster/>
 
     <div className="qimen-mode" role="group" aria-label="选择九宫展示方式"><button aria-pressed={mode === 'chart'} className={mode === 'chart' ? 'active' : ''} onClick={() => setMode('chart')}><Layers3 size={15} />完整示范盘</button><button aria-pressed={mode === 'earth'} className={mode === 'earth' ? 'active' : ''} onClick={() => setMode('earth')}><MoveUpRight size={15} />地盘排布演示</button></div>
 
